@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ProductOfArrayElements {
+
+  static int[] result;
+  public static void main(String []args){
+    System.out.println("Enter Size of elements: ");
+    Scanner sc = new Scanner(System.in);  // Reading from System.in
+
+    int n = sc.nextInt(); 
+    if (n == 0) {
+      return;
+    }
+    ArrayList<Integer> elements = new ArrayList<Integer>(n);
+    System.out.println("Enter elements of the array :: ");
+    for(int i=0; i<n; i++) {
+      elements.add(Integer.parseInt(sc.next()));
+    }
+    sc.close();
+    result = new int[n];
+
+    // If the number of elements is 1
+    if( n == 1) {
+      elements.get(0);
+      printResult();
+      return;
+    }
+     
+    // If the number of elements is 2
+    if(n == 2) {
+      result[1] = elements.get(0);
+      result[0] = elements.get(1);
+      printResult();
+      return;
+    }
+
+    //If the number of elements is more than 2
+    int p = 0;
+    while (p < n) {
+      int res = 1;
+      for ( int j = 0; j < n; j++) {
+        if (p != j) {
+          res *=  elements.get(j);
+        }
+      }
+     result[p] = res;
+     p++;  
+   }
+   printResult();
+  
+  }
+
+  // This function prints the result array
+  public static void printResult() {
+    System.out.print("[");
+    for ( int k = 0; k < result.length; k++) {
+      System.out.print(" "+result[k]);
+    }
+    System.out.print(" ]");
+  }
+}
