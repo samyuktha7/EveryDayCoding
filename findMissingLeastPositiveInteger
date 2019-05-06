@@ -1,0 +1,31 @@
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+
+    ArrayList<Integer> elements;
+    Scanner sc = new Scanner(System.in);  // Reading from System.in
+    int n = 0;
+
+    do {
+       System.out.println("Enter Size of elements: ");
+       n = sc.nextInt();
+    } while (n == 0);
+    
+    elements = new ArrayList<Integer>(n);
+    System.out.println("Enter elements of the array :: ");
+    for(int i=0; i<n; i++) {
+      elements.add(Integer.parseInt(sc.next()));
+    }
+
+    for (int i = 1; i <= (n+1) ; i++) {
+      if (!elements.contains(i)) {
+        System.out.println("Result" +i);
+        return;
+      }
+    }
+  }
+}
