@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+   
+    System.out.println("Enter the pair ");
+    Scanner sc = new Scanner(System.in);
+    Pair inputPair = new Pair(sc.nextInt(), sc.nextInt());
+
+    System.out.println(car(inputPair)+" "+cons(inputPair));
+  }
+
+  public static class Pair {
+    private int x;
+    private int y;
+
+    public Pair(int x, int y) {
+      this.x = x;
+      this.y = y;
+    }
+  }
+
+  public static int car(Pair p) {
+    return p.x;
+  }
+
+  public static int cons(Pair p) {
+    return p.y;
+  }
+}
+
